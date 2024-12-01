@@ -48,8 +48,3 @@ gl = 1 #Grados de libertad = categorías(par/impar) - 1 = 2 - 1 = 1
 valorCritico = chi2.ppf(1 - alpha, gl)
 
 pruebaFinal(pruebaChi2,valorCritico)
-
-#Prueba 2 - Prueba de frecuencia para uniformidad usando Chi-cuadrado
-
-
- 
