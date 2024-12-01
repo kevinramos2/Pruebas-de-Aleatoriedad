@@ -55,7 +55,6 @@ def prueba(listas):
       print(f'Como el estadístico {estadístico:.2f} es mayor al valor crítico {valorCritico:.2f}, es suficiente información para rechazar Ho, por lo tanto, los datos no se distribuyen de manera uniforme.\n')
 
 #Prueba 2 - Prueba de frecuencia para uniformidad usando Chi-cuadrado
-
 print()
 print("Se trabajará con un CSV que contiene cierta cantidad de resultados de la lotería de Bogotá.")
 print("Las hipótesis planteadas son:")
