@@ -38,6 +38,22 @@ def intervalos(resultados):
             diez.append(resultados[i])
 
     return uno,dos,tres,cuatro,cinco,seis,siete,ocho,nueve,diez
+
+def prueba(listas):
+  Ei = len(resultadosLoteria)/10 #Frecuencia esperada
+  estadístico = 0
+  alpha = 0.05 #Significancia
+  gl = 9 #Grados de libertad = categorías(10) - 1 = 10 - 1 = 9
+  valorCritico = chi2.ppf(1 - alpha, gl)
+
+  for i in range(10):
+      estadístico += ((len(listas[i])-Ei)**2/Ei)
+      
+  if estadístico <= valorCritico:
+      print(f'El estádístico {estadístico:.2f} es <= al valor crítico {valorCritico:.2f}, por lo tanto, no tenemos suficiente información para rechazar Ho, por lo cual podemos decir que los números se distribuyen de manera uniforme.\n')
+  if estadístico > valorCritico:
+      print(f'Como el estadístico {estadístico:.2f} es mayor al valor crítico {valorCritico:.2f}, es suficiente información para rechazar Ho, por lo tanto, los datos no se distribuyen de manera uniforme.\n')
+
 #Prueba 2 - Prueba de frecuencia para uniformidad usando Chi-cuadrado
 
 print()
@@ -46,4 +62,6 @@ print("Las hipótesis planteadas son:")
 print("Ho: Los números están distribuidos uniformemente.")
 print("Ha: Los números no están distribuidos uniformemente.\n")
 
-print(intervalos(resultadosLoteria))
+listas = intervalos(resultadosLoteria)
+prueba(listas)
+
