@@ -48,7 +48,7 @@ def prueba(listas):
 
   for i in range(10):
       estadístico += ((len(listas[i])-Ei)**2/Ei)
-      
+
   if estadístico <= valorCritico:
       print(f'El estádístico {estadístico:.2f} es <= al valor crítico {valorCritico:.2f}, por lo tanto, no tenemos suficiente información para rechazar Ho, por lo cual podemos decir que los números se distribuyen de manera uniforme.\n')
   if estadístico > valorCritico:
@@ -64,4 +64,3 @@ print("Ha: Los números no están distribuidos uniformemente.\n")
 
 listas = intervalos(resultadosLoteria)
 prueba(listas)
-
