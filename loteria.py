@@ -3,9 +3,9 @@ from scipy.stats import chi2
 
 # Lista para almacenar los resultados
 resultadosLoteria = []
-ruta_archivo = 'loteriaBOG.csv'  
+rutaArchivo = 'loteriaBOG.csv'  
 # Leer el archivo
-with open(ruta_archivo, 'r') as read_obj:
+with open(rutaArchivo, 'r') as read_obj:
     # Crear un objeto lector de CSV
     csv_reader = csv.reader(read_obj)
     for row in csv_reader:
