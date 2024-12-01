@@ -1,4 +1,5 @@
 import csv
+from scipy.stats import chi2
 
 # Lista para almacenar los resultados
 resultadosLoteria = []
@@ -26,8 +27,25 @@ def paresImpares(resultadosLoteria):
       impares += 1
   return pares, impares
 
+def pruebaFinal(estadístico, valorC):
+  if estadístico <= valorC:
+    print("No hay suficiente evidencia para rechazar Ho, por lo tanto la cantidad de pares e impares en esta secuencia se puede considerar igual.")
+  else:
+    print("Hay suficiente evidencia para rechazar Ho, por lo tanto, aceptamos Ha y sabemos que la cantidad de pares e impares en esta secuencia es diferente.")
+
+
 p,i = paresImpares(resultadosLoteria)
 print(f'En {len(resultadosLoteria)} datos hay {p} pares y {i} impares')
 
 Ei = len(resultadosLoteria)//2 #Frecuencia esperada
-print(Ei)
+pruebaChi2 = ((p-Ei)**2/Ei) + ((i-Ei)**2/Ei) #Prueba chi-cuadrado para obtener el estadístico
+alpha = 0.05 #Significancia
+gl = 1 #Grados de libertad
+valorCritico = chi2.ppf(1 - alpha, gl)
+
+print(f'El estadístico es {pruebaChi2}')
+print(f'El valor crítico es {valorCritico}')
+pruebaFinal(pruebaChi2,valorCritico)
+
+
+ 
