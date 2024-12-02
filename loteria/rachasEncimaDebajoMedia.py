@@ -32,8 +32,8 @@ def rachas(resultados,media):
 def prueba(arriba,abajo,tamaño):
   n1 = arriba
   n2 = abajo
-  N = arriba+abajo
-  b = N
+  N = tamaño
+  b = arriba+abajo
   miu = ((2*n1*n2)/N) + 1/2 #Frecuencia esperada
   sigmaC = (2*n1*n2*(2*n1*n2-N))/((N**2)*(N-1))#Desviación
   estadistico = (b-miu)/m.sqrt(sigmaC) #Estadístico estandarizado
