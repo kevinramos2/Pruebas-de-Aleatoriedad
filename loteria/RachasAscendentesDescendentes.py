@@ -35,7 +35,7 @@ def prueba(asc,des,tamaño):
   estadistico = (a-miu)/m.sqrt(sigmaC) #Estadístico estandarizado
 
   if abs(estadistico) <= 1.96:
-    print(f'Como el estadístico calculado ({abs(estadistico):.2f}) es <= al valor crítico (1.96), NO hay suficiente evidencia para descartar Ho, por lo tanto las observaciones son independientes.')
+    print(f'Como el estadístico calculado ({abs(estadistico):.2f}) es <= al valor crítico (1.96). NO hay suficiente evidencia para descartar Ho, por lo tanto las observaciones son independientes.')
   else:
      print(f'Como el estadístico calculado ({abs(estadistico):.2f}) es > al valor crítico (1.96), hay suficiente evidencia para descartar Ho, por lo tanto las observaciones NO son independientes.')
 
