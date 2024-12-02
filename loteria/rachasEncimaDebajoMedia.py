@@ -14,24 +14,28 @@ with open(rutaArchivo, 'r') as read_obj:
         v = int(row[0])  # Convertir a entero
         resultadosLoteria.append(v)
 
-def rachas(resultados,media):
+def rachasYFrecuencias(resultados,media):
   corridasArriba = 0
   corridasAbajo = 0
+  n1,n2 = 0,0
   tendenciaActual = None  # Para saber la actual corrida en qué va
   for i in range(len(resultados)):
       if resultados[i] > media:  # Por arriba de la media
+          n1 += 1
           if tendenciaActual != "arriba":
               corridasArriba += 1
               tendenciaActual = "arriba"
       elif resultados[i] < media: # Por debajo de la media
+          n2 += 1
           if tendenciaActual != "abajo":
               corridasAbajo += 1    
               tendenciaActual = "abajo"
-  return corridasArriba, corridasAbajo
+  return corridasArriba, corridasAbajo, n1,n2
 
-def prueba(arriba,abajo,tamaño):
-  n1 = arriba
-  n2 = abajo
+def prueba(arriba,abajo,tamaño,n1,n2):
+  n1 = n1
+  n2 = n2
+  print(n1,n2)
   N = tamaño
   b = arriba+abajo
   miu = ((2*n1*n2)/N) + 1/2 #Frecuencia esperada
@@ -50,6 +54,6 @@ print("Las hipótesis planteadas son:")
 print("Ho: Los números están en una secuencia independiente.")
 print("Ha: Los números no están en una secuencia independiente.\n")
 media = np.mean(resultadosLoteria)
-arriba, abajo = rachas(resultadosLoteria,media)
+arriba, abajo, n1, n2 = rachasYFrecuencias(resultadosLoteria,media)
 print(f"Rachas ascendentes: {arriba}, Rachas descendentes: {abajo}")
-prueba(arriba,abajo,len(resultadosLoteria))
+prueba(arriba,abajo,len(resultadosLoteria),n1,n2)
