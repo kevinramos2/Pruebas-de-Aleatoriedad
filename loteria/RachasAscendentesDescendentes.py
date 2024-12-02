@@ -16,7 +16,7 @@ with open(rutaArchivo, 'r') as read_obj:
 def rachas(resultados):
   corridasAscendentes = 0
   corridasDescendentes = 0
-  tendenciaActual = None  # Puede ser 'ascendente' descendente', o None
+  tendenciaActual = None  # Para saber la actual corrida en qué va
   for i in range(len(resultados)):
       if resultados[i] > resultados[i - 1]:  # Ascendente
           if tendenciaActual != "ascendente":
