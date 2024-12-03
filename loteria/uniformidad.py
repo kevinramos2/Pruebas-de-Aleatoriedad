@@ -1,4 +1,5 @@
 import csv
+from matplotlib import pyplot as plt
 from scipy.stats import chi2
 
 # Lista para almacenar los resultados
@@ -72,3 +73,20 @@ print("Ha: Los números no están distribuidos uniformemente.\n")
 listas = intervalos(resultadosLoteria)
 print("Se analizaron los intervalos para determinar la frecuencia de los resultados.")
 prueba(listas)
+
+# Prueba espectral
+# Crear pares adyacentes
+pares = [(resultadosLoteria[i], resultadosLoteria[i+1]) for i in range(len(resultadosLoteria)-1)]
+
+# Separar en dos listas para graficar
+x_vals = [par[0] for par in pares]
+y_vals = [par[1] for par in pares]
+
+# Graficar los pares en un plano cartesiano
+plt.figure(figsize=(10, 6))
+plt.scatter(x_vals, y_vals, alpha=0.6, edgecolor='k', color='blue')
+plt.title("Prueba espectral: Pares adyacentes de la secuencia")
+plt.xlabel("x_j")
+plt.ylabel("x_j+1")
+plt.grid(True)
+plt.show()
