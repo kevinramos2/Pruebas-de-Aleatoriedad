@@ -78,7 +78,7 @@ prueba(arriba, abajo, len(resultadosLoteria), n1, n2)
 
 # Prueba espectral
 # Crear pares adyacentes
-pares = [(resultadosLoteria[i], resultadosLoteria[i+1]) for i in range(len(resultadosLoteria)-1)]
+pares = [(resultadosLoteria[i], resultadosLoteria[i-1]) for i in range(len(resultadosLoteria)-1)]
 
 # Separar en dos listas para graficar
 x_vals = [par[0] for par in pares]
@@ -89,6 +89,6 @@ plt.figure(figsize=(10, 6))
 plt.scatter(x_vals, y_vals, alpha=0.6, edgecolor='k', color='blue')
 plt.title("Prueba espectral: Pares adyacentes de la secuencia")
 plt.xlabel("x_j")
-plt.ylabel("x_j+1")
+plt.ylabel("x_j-1")
 plt.grid(True)
 plt.show()
