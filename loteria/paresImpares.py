@@ -56,7 +56,7 @@ valorCritico = chi2.ppf(1 - alpha, gl)
 
 # Presentación de resultados
 pruebaFinal(pruebaChi2, valorCritico)
-
+print(valorCritico)
 # Prueba espectral
 # Crear pares adyacentes
 pares = [(resultadosLoteria[i], resultadosLoteria[i+1]) for i in range(len(resultadosLoteria)-1)]
