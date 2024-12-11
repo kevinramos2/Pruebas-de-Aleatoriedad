@@ -41,8 +41,8 @@ def prueba(arriba, abajo, tamaño, n1, n2):
     miu = ((2 * n1 * n2) / N) + 0.5  # Frecuencia esperada de rachas
     sigmaC = (2 * n1 * n2 * (2 * n1 * n2 - N)) / ((N ** 2) * (N - 1))  # Desviación estándar
     estadistico = (b - miu) / m.sqrt(sigmaC)  # Estadístico de prueba estandarizado
-
-    print(f"\nEstadístico de prueba calculado: {abs(estadistico):.2f}")
+    print(N,b,miu,sigmaC)
+    print(f"\nEstadístico de prueba calculado: {(estadistico):.2f}")
     print("Valor crítico (nivel de significancia del 5%): 1.96\n")
 
     if abs(estadistico) <= 1.96:
